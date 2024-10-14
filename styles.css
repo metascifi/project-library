@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+tr:not(:first-child) {
+    margin-bottom: 50px;
+}
+
+.table-row {
+    position: relative;
+}
+
+.dropdown-container {
+    overflow: hidden;
+    height: 20px;
+    z-index: 1;
+}
+
+.dropdown {
+    background-color: aqua;
+    position: relative;
+}
