@@ -17,14 +17,15 @@ let dropdownIcon = document.createElement("img");
 let checkConfirmation;
 
 
-
-function Book(name, author, year, pages, isRead) {
-  this.name = name,
-  this.author = author,
-  this.year = year,
-  this.pages = pages,
-  this.isRead = isRead
-}
+class Book {
+  constructor(name, author, year, pages, isRead) {
+    this.name = name,
+    this.author = author,
+    this.year = year,
+    this.pages = pages,
+    this.isRead = isRead
+  }
+};
 
 function addBookToLibrary(name, author, year, pages, isRead) {
     if (isRead.checked === true){
@@ -227,7 +228,7 @@ btnNewBook.addEventListener("click", (event) => {
          btnRemove.setAttribute("class", "btnRemove");
 
          for (let element of document.querySelectorAll("form .field")){
-            console.log(element.value);
+            // console.log(element.value);
             element.value = "";
         };
 
@@ -254,12 +255,12 @@ btnNewBook.addEventListener("click", (event) => {
     
             let tableRowListLength = tableRowList.length;
     
-            console.log(btnRemoveList);
-            console.log(tableRowList);
+            // console.log(btnRemoveList);
+            // console.log(tableRowList);
     
             for (let i = 0; i < tableRowListLength; i++) {
-                console.log(tableRowList);
-                console.log(event.target.index === tableRowList[i].index);
+                // console.log(tableRowList);
+                // console.log(event.target.index === tableRowList[i].index);
                 if (event.target.index === tableRowList[i].index){
                     tableRowList[i].remove();
                     myLibrary.splice([i],1);
@@ -346,9 +347,9 @@ btnNewBook.addEventListener("click", (event) => {
         optionTwo.addEventListener("click", (event) => {
             for (let i = 0; i < optionOneList.length; i++) {
                 if (event.target.index === optionTwoList[i].index) {
-                   optionOneList[i].textContent = optionOneList[i].textContent === "Completed" ? "Not finished" : "Completed";
-                   optionTwoList[i].textContent = optionTwoList[i].textContent === "Not finished" ? "Completed" : "Not finished"; 
-                   myLibrary[i].isRead = optionOne.textContent; 
+                    optionOneList[i].textContent = optionOneList[i].textContent === "Completed" ? "Not finished" : "Completed";
+                    optionTwoList[i].textContent = optionTwoList[i].textContent === "Not finished" ? "Completed" : "Not finished"; 
+                    myLibrary[i].isRead = optionOneList[i].textContent; 
                 }
                }
         })
